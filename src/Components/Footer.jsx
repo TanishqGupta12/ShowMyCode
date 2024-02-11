@@ -17,7 +17,7 @@ export default function Footer() {
 
             </div>
 
-            <div class="tag">
+            {/* <div class="tag">
                 <h1>Quick Link</h1>
                 <a href="#">Home</a>
                 <a href="#">About</a>
@@ -26,7 +26,7 @@ export default function Footer() {
                 <a href="#">Reviews</a>
                 <a href="#">Blog</a>
 
-            </div>
+            </div> */}
 
             <div class="tag">
                 <h1>Contact Info</h1>
@@ -46,7 +46,6 @@ export default function Footer() {
 
         </div>
 
-        <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i> WT Master Code</span></p>
 
     </footer>
     </>

@@ -1,16 +1,24 @@
-import Navbar from './Components/Navbar';
-import Footer from "./Components/Footer";
-import Banner from "./Components/Banner";
-import Reviews from "./Components/Reviews";
+
+import About from "./Components/About";
+import Home from "./Components/Home";
+import Blog from "./Components/blog";
+
+
+ 
+import { Routes, Route } from "react-router-dom";  
 
 import "./App.css"
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Banner/>
-      <Reviews/>
-      <Footer/>
+      <Routes>
+          <Route exact path='/'  element={<Home />} />
+
+          <Route exact path='/About'  element={<About />} />
+
+          <Route exact path='/login'  element={<Blog />} />
+
+      </Routes>
     </div>
   );
 }
