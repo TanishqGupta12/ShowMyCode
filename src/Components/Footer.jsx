@@ -37,17 +37,6 @@ export default function Footer() {
             </div>
 
             <div class="tag">
-                <h1>Follow Us</h1>
-                <div class="social_link">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </div>
-
-            </div>
-
-            <div class="tag">
                 <h1>Newsletter</h1>
                 <div class="search_bar">
                     <input type="text" placeholder="You email id here"/>

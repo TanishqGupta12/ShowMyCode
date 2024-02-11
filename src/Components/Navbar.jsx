@@ -8,28 +8,9 @@ function Navbar() {
           <div class="logo">
           <img src={process.env.PUBLIC_URL + './logo.png'} alt='...' />
           </div>
-
-          <ul>
-            <li>
-              <a href="#Home">Home</a>
-            </li>
-            <li>
-              <a href="#About">About</a>
-            </li>
-            <li>
-              <a href="#Featured">Featured</a>
-            </li>
-            <li>
-              <a href="#Arrivals">Arrivals</a>
-            </li>
-            <li>
-              <a href="#Reviews">Reviews</a>
-            </li>
-            <li>
-              <a href="#Blog">Blog</a>
-            </li>
-          </ul>
-
+          <div id="title" class="d-flex justify-content-center">
+            <h2>BookMyCode</h2>
+          </div>
           <div class="social_icon">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-heart"></i>
@@ -52,7 +33,7 @@ function Navbar() {
           </div>
 
           <div class="main_img">
-            <img src="image/table.png" />
+            <img src="image/b.png" />
           </div>
         </div>
       </section>
