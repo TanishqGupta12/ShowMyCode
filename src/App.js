@@ -3,6 +3,7 @@ import About from "./Components/About";
 import Home from "./Components/Home";
 import Blog from "./Components/blog";
 
+import Login from "../src/Components/User/Login";
 
  
 import { Routes, Route } from "react-router-dom";  
@@ -16,7 +17,9 @@ function App() {
 
           <Route exact path='/About'  element={<About />} />
 
-          <Route exact path='/login'  element={<Blog />} />
+          <Route exact path='/Blog'  element={<Blog />} />
+          
+          <Route exact path='/login'  element={<Login />} />
 
       </Routes>
     </div>

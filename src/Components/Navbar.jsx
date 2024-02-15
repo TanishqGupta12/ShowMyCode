@@ -19,11 +19,11 @@ function Navbar() {
               <a href="/About">About</a>
             </li>
             <li>
-              <a href="/login">Blog</a>
+              <a href="/Blog">Blog</a>
             </li>
-            {/* <li>
-              <a href="#Arrivals">Arrivals</a>
-            </li> */}
+            <li>
+              <a href="/login">Login</a>
+            </li>
             {/* <li>
               <a href="#Reviews">Reviews</a>
             </li> */}

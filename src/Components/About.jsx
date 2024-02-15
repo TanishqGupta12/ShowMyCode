@@ -5,7 +5,7 @@ export default function About() {
     <>
       <div class="about">
         <div class="about_image">
-          <img src="image/about.png" />
+          <img src="image/About.jpg" />
         </div>
         <div class="about_tag">
           <h1>About Us</h1>
