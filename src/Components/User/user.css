@@ -2,13 +2,13 @@
   display: grid;
   grid-template-columns: 8fr 8fr;
   grid-gap: 2px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 100%;
 }
 
 .login > div {
   margin: 10px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 85vh;
   margin-top: 5vmax;
 
@@ -25,13 +25,17 @@
   width: 80%;
 }
 
+.login > div > .image > img:hover{
+    box-shadow: 10px 8px 16px 5px rgba(0,0,0,0.2);
+  }
 
 .login > div > .profile {
     margin: 2vmax;
     display: flex;
     justify-content: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 2vmax;
+    
   }
 
   .login > div > .profile > .profile_main{
@@ -40,7 +44,14 @@
     justify-content: center;
     align-items: center; 
     padding: 2vmax;
-    width: 100%;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+   
+  }
+
+  .login > div > .profile > .profile_main:hover{
+    box-shadow: 10px 8px 16px 5px rgba(0,0,0,0.2);
    
   }
 
@@ -52,8 +63,9 @@
 
   .login > div > .profile > .profile_main > div > .h6{
     font-weight: 400; 
-    font-size: 1.2vmax; 
-    font-family: 'Roboto', sans-serif; 
+    font-size: 1vmax; 
+    font-family: 'Roboto', sans-serif;
+    
   }
 
   .login > div > .profile > .profile_main > div > input {
@@ -61,4 +73,8 @@
     outline: none;
     width: 100%;
     padding: 2px;
+    font-weight: 400; 
+    font-size: 1vmax; 
+    font-family: 'Roboto', sans-serif;
+
   }

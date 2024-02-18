@@ -10,6 +10,7 @@ export default function Login() {
   const myInlineStyle = {
     textAlign: "center",
     padding: "20px",
+    paddingBottom: "2px",
   };
   return (
     <>
