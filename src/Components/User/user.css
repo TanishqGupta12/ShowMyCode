@@ -1,0 +1,64 @@
+.login {
+  display: grid;
+  grid-template-columns: 8fr 8fr;
+  grid-gap: 2px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.login > div {
+  margin: 10px;
+  border: 1px solid red;
+  height: 85vh;
+  margin-top: 5vmax;
+
+}
+
+.login > div > .image {
+  position: relative;
+}
+
+.login > div > .image > img {
+  position: absolute;
+  left: 5vmax;
+  top: 10vmax;
+  width: 80%;
+}
+
+
+.login > div > .profile {
+    margin: 2vmax;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+    padding: 2vmax;
+  }
+
+  .login > div > .profile > .profile_main{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    padding: 2vmax;
+    width: 100%;
+   
+  }
+
+  .login > div > .profile > .profile_main > div{
+    width: 50%;
+    padding: 0.5vmax;
+    display: block;
+  }
+
+  .login > div > .profile > .profile_main > div > .h6{
+    font-weight: 400; 
+    font-size: 1.2vmax; 
+    font-family: 'Roboto', sans-serif; 
+  }
+
+  .login > div > .profile > .profile_main > div > input {
+    /* display: none; */
+    outline: none;
+    width: 100%;
+    padding: 2px;
+  }
