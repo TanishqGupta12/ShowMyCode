@@ -99,7 +99,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="login">
+      <div className="sign_up">
         <div>
           <div className="image">
             <img src={banner} alt=".." />
