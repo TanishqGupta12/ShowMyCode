@@ -1,4 +1,4 @@
- nav{
+nav {
   width: 100%;
   display: flex;
   align-items: center;
@@ -10,49 +10,47 @@
   z-index: 100;
 }
 
- nav .logo img{
+nav .logo img {
   width: 100px;
   cursor: pointer;
   margin: 8px 0;
 }
 
- nav> #title > h2:hover {
+nav > #title > h2:hover {
   color: #089da1;
 }
 
-
-nav ul{
+nav ul {
   list-style: none;
 }
 
- nav li{
+nav li {
   display: inline-block;
   padding: 0 10px;
 }
 
- nav li a{
+nav li a {
   text-decoration: none;
   color: #000;
   font-weight: 600;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
- nav li a:hover{
+nav li a:hover {
   color: #089da1;
 }
 
- nav .social_icon i{
+nav .social_icon i {
   margin: 0 5px;
   font-size: 18px;
 }
 
- nav .social_icon i:hover{
+nav .social_icon i:hover {
   color: #089da1;
   cursor: pointer;
 }
 
-
-  .main{
+.main {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -61,18 +59,18 @@ nav ul{
   height: 100vh;
 }
 
- .main h1{
+.main h1 {
   position: relative;
   font-size: 55px;
   top: 80px;
   left: 25px;
 }
 
- .main h1 span{
+.main h1 span {
   color: #089da1;
 }
 
- .main p{
+.main p {
   width: 650px;
   text-align: justify;
   line-height: 22px;
@@ -81,7 +79,7 @@ nav ul{
   left: 25px;
 }
 
- .main .main_tag .main_btn{
+.main .main_tag .main_btn {
   background: #089da1;
   padding: 10px 20px;
   position: relative;
@@ -91,7 +89,7 @@ nav ul{
   text-decoration: none;
 }
 
- .main .main_img img{
+.main .main_img img {
   width: 780px;
   position: relative;
   top: 90px;
@@ -100,7 +98,7 @@ nav ul{
 
 /*about*/
 
-.about{
+.about {
   width: 100%;
   height: 90vh;
   padding: 20px;
@@ -109,24 +107,24 @@ nav ul{
   justify-content: space-around;
 }
 
-.about .about_image img{
+.about .about_image img {
   width: 800px;
 }
 
-.about .about_tag h1{
+.about .about_tag h1 {
   font-size: 50px;
   position: relative;
   bottom: 35px;
 }
 
-.about .about_tag p{
+.about .about_tag p {
   line-height: 22px;
   width: 650px;
   text-align: justify;
   margin-bottom: 15px;
 }
 
-.about .about_tag .about_btn{
+.about .about_tag .about_btn {
   padding: 10px 20px;
   background: #089da1;
   color: #fff;
@@ -135,63 +133,62 @@ nav ul{
   top: 50px;
 }
 
-
 /*Blog*/
 
-.blog{
+.blog {
   width: 100%;
   height: auto;
   margin: 25px 0;
 }
 
-.blog h1{
+.blog h1 {
   text-align: center;
   font-size: 50px;
   margin-bottom: 30px;
 }
 
-.blog .blog_box{
+.blog .blog_box {
   width: 95%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.blog .blog_box .blog_card{
+.blog .blog_box .blog_card {
   margin: 0 auto;
   width: 450px;
   height: auto;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
-.blog .blog_box .blog_card .blog_img{
+.blog .blog_box .blog_card .blog_img {
   width: 450px;
   height: 300px;
   overflow: hidden;
 }
 
-.blog .blog_box .blog_card .blog_img img{
+.blog .blog_box .blog_card .blog_img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.blog .blog_box .blog_card .blog_tag{
+.blog .blog_box .blog_card .blog_tag {
   padding: 20px;
 }
 
-.blog .blog_box .blog_card .blog_tag h2{
+.blog .blog_box .blog_card .blog_tag h2 {
   color: #089da1;
 }
 
-.blog .blog_box .blog_card .blog_tag p{
+.blog .blog_box .blog_card .blog_tag p {
   margin-top: 10px;
   text-align: justify;
   line-height: 22px;
 }
 
-.blog .blog_box .blog_card .blog_tag .blog_icon{
+.blog .blog_box .blog_card .blog_tag .blog_icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -201,15 +198,15 @@ nav ul{
 
 /*Banner*/
 
-.banner{
+.banner {
   width: 100%;
   height: 50vh;
-  background-image: url('../public/banner.jpg');
+  background-image: url("../public/banner.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.banner .banner_btn{
+.banner .banner_btn {
   padding: 8px 20px;
   background: #089da1;
   text-decoration: none;
@@ -219,21 +216,20 @@ nav ul{
   left: 7%;
 }
 
-
 /*reviews*/
 
-.reviews{
+.reviews {
   width: 100%;
   height: auto;
 }
 
-.reviews h1{
+.reviews h1 {
   text-align: center;
   font-size: 50px;
   margin-top: 55px;
 }
 
-.reviews .review_box{
+.reviews .review_box {
   width: 95%;
   height: 50vh;
   margin: 15px auto;
@@ -242,7 +238,7 @@ nav ul{
   justify-content: center;
 }
 
-.reviews .review_box .review_card{
+.reviews .review_box .review_card {
   width: 400px;
   height: 320px;
   box-shadow: 0 0 8px #089da1;
@@ -250,7 +246,7 @@ nav ul{
   margin: 0 12px;
 }
 
-.reviews .review_box .review_card i{
+.reviews .review_box .review_card i {
   float: right;
   font-size: 120px;
   position: relative;
@@ -258,19 +254,19 @@ nav ul{
   color: #eaeaea;
 }
 
-.reviews .review_box .review_card .card_top img{
+.reviews .review_box .review_card .card_top img {
   width: 80px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-.reviews .review_box .review_card .card p{
+.reviews .review_box .review_card .card p {
   margin: 10px 0 10px 0;
   text-align: justify;
   line-height: 22px;
 }
 
-.reviews .review_box .review_card .card .review_icon i{
+.reviews .review_box .review_card .card .review_icon i {
   font-size: 16px;
   float: left;
   margin-top: 20px;
@@ -280,61 +276,61 @@ nav ul{
 
 /* footer */
 
-footer{
+footer {
   width: 100%;
   background: #eaeaea;
 }
 
-footer .footer_main{
+footer .footer_main {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-footer .footer_main .tag{
+footer .footer_main .tag {
   margin: 10px 0;
 }
 
-footer .footer_main .tag img{
+footer .footer_main .tag img {
   width: 100px;
   margin-bottom: 10px;
 }
 
-footer .footer_main .tag p{
+footer .footer_main .tag p {
   width: 250px;
   line-height: 22px;
   text-align: justify;
 }
 
-footer .footer_main .tag h1{
+footer .footer_main .tag h1 {
   font-size: 25px;
   margin: 25px 0;
   color: #000;
 }
 
-footer .footer_main .tag a{
+footer .footer_main .tag a {
   display: block;
   color: black;
   text-decoration: none;
   margin: 10px 0;
 }
 
-footer .footer_main .tag i{
+footer .footer_main .tag i {
   margin-right: 10px;
 }
 
-footer .footer_main .tag .social_link i{
+footer .footer_main .tag .social_link i {
   margin: 0 5px;
 }
 
-footer .footer_main .tag .search_bar{
+footer .footer_main .tag .search_bar {
   width: 230px;
   height: 30px;
-  background: rgba(202,202,202);
+  background: rgba(202, 202, 202);
   border-radius: 25px;
 }
 
-footer .footer_main .tag .search_bar input{
+footer .footer_main .tag .search_bar input {
   width: 200px;
   padding: 2px 0;
   position: relative;
@@ -346,7 +342,7 @@ footer .footer_main .tag .search_bar input{
   background: none;
 }
 
-footer .footer_main .tag .search_bar button{
+footer .footer_main .tag .search_bar button {
   padding: 7px 15px;
   background: #089da1;
   border: none;
@@ -356,7 +352,7 @@ footer .footer_main .tag .search_bar button{
   cursor: pointer;
 }
 
-footer .end{
+footer .end {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -364,7 +360,7 @@ footer .end{
   color: #000;
 }
 
-footer .end span{
+footer .end span {
   color: #089da1;
   margin-left: 10px;
 }

@@ -5,7 +5,7 @@ export default function About() {
     <>
       <div class="about">
         <div class="about_image">
-          <img src="image/About.jpg" />
+          <img src="image/About.jpg" alt="..." />
         </div>
         <div class="about_tag">
           <h1>About Us</h1>
@@ -18,7 +18,7 @@ export default function About() {
             aperiam laboriosam voluptas nobis voluptates id amet eos repellat
             corrupti harum consectetur, dolorum dolore blanditiis quam quo.
           </p>
-          <a href="#" class="about_btn">
+          <a href="#.." class="about_btn">
             Learn More
           </a>
         </div>

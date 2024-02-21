@@ -4,7 +4,7 @@ export default function Blog() {
   return (
     <>
       <div class="banner">
-        <a href="#" class="banner_btn">
+        <a href=".." class="banner_btn">
           Learn More
         </a>
         <div>login</div>

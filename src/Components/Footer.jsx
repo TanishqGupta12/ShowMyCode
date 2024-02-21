@@ -30,9 +30,9 @@ export default function Footer() {
 
             <div class="tag">
                 <h1>Contact Info</h1>
-                <a href="#"><i class="fa-solid fa-phone"></i>+94 12 345 6789</a>
-                <a href="#"><i class="fa-solid fa-phone"></i>+94 32 444 699</a>
-                <a href="#"><i class="fa-solid fa-envelope"></i>bookstore123@gmail.com</a>
+                <a href="#.."><i class="fa-solid fa-phone"></i>+94 12 345 6789</a>
+                <a href="#.."><i class="fa-solid fa-phone"></i>+94 32 444 699</a>
+                <a href="#.."><i class="fa-solid fa-envelope"></i>bookstore123@gmail.com</a>
 
             </div>
 

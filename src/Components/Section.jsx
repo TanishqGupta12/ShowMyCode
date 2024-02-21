@@ -24,7 +24,7 @@ export default function Section() {
           </div>
 
           <div class="main_img">
-            <img src="image/b.png" />
+            <img src="image/b.png" alt="..." />
           </div>
         </div>
       </section>
