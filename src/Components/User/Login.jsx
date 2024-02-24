@@ -15,10 +15,6 @@ export default function Login() {
         <div className="profile">
           <div className="profile_main">
 
-            <Typography variant="h3" display="block" className="h6">
-                Log in
-              </Typography>
-
             <div>
               <Typography variant="h6" display="block" className="h6">
                 Email

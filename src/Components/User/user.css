@@ -91,7 +91,10 @@
   justify-content: center;
 }
 
-.login > .image_main {
+.login > .image_main  >img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
 }
 .login > .profile > .profile_main > div {
