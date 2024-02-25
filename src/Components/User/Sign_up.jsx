@@ -84,11 +84,9 @@ import React from "react";
 // import Typography from "@mui/material/Typography";
 import banner from "../../image/seven-shooter-hPKTYwJ4FUo-unsplash.jpg";
 import "./user.css";
-
+import { Link } from "react-router-dom";
 import Form from "../../util/form";
 export default function Login() {
-  
-
   // import { Outlet, Link } from "react-router-dom";
 
   const myInlineStyle = {
@@ -113,8 +111,10 @@ export default function Login() {
                 <h2 style={myInlineStyle}> Login</h2>
               </div>
 
-                <Form/>
-
+              <Form />
+              <div className="link" >
+              <Link to='/login'>login</Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setemail] = useState(" ");
@@ -14,12 +15,17 @@ export default function Login() {
 
         <div className="profile">
           <div className="profile_main">
-
             <div>
               <Typography variant="h6" display="block" className="h6">
                 Email
               </Typography>
-              <input type="email" onChange={(e)=>{setemail(e.target.value)}} value={email} />
+              <input
+                type="email"
+                onChange={(e) => {
+                  setemail(e.target.value);
+                }}
+                value={email}
+              />
             </div>
 
             <div>
@@ -28,7 +34,9 @@ export default function Login() {
               </Typography>
               <input
                 type="email"
-                onChange={(e)=>{setpassword(e.target.value)}}
+                onChange={(e) => {
+                  setpassword(e.target.value);
+                }}
                 value={password}
               />
             </div>
@@ -36,6 +44,9 @@ export default function Login() {
               <input type="submit" value="Submit" />
             </div>
           </div>
+          <div className="link">
+              <Link to="/Sign">Sign Up</Link>
+            </div>
         </div>
       </div>
     </>

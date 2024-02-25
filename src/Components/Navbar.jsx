@@ -22,11 +22,11 @@ function Navbar() {
               <a href="/Blog">Blog</a>
             </li>
             <li>
-              <a href="/Sign">Sign</a>
-            </li>
-            <li>
               <a href="/login">login</a>
             </li>
+            {/* <li>
+              <a href="/login">login</a>
+            </li> */}
             {/* <li>
               <a href="#Blog">Blog</a>
             </li> */}

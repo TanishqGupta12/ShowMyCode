@@ -21,7 +21,7 @@ export default function Form() {
         <Typography variant="h6" display="block" className="h6">
           Full Name
         </Typography>
-        <input type="email" onChange={handleButtonClick} value={Full_name} />
+        <input type="text" onChange={handleButtonClick} value={Full_name} />
       </div>
 
       <div>
@@ -35,21 +35,21 @@ export default function Form() {
         <Typography variant="h6" display="block" className="h6">
           Password
         </Typography>
-        <input type="email" onChange={handleButtonClick} value={password} />
+        <input type="password" onChange={handleButtonClick} value={password} />
       </div>
 
       <div id="sign">
         <Typography variant="h6" display="block" className="h6">
           Confirm Password
         </Typography>
-        <input type="email" onChange={handleButtonClick} value={c_password} />
+        <input type="password" onChange={handleButtonClick} value={c_password} />
       </div>
 
       <div id="sign">
         <Typography variant="h6" display="block" className="h6">
           Phone Number
         </Typography>
-        <input type="email" onChange={handleButtonClick} value={P_number} />
+        <input type="number" onChange={handleButtonClick} value={P_number} />
       </div>
 
       <div>
