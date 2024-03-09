@@ -1,7 +1,10 @@
-
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
+// import { getAnalytics } from "firebase/analytics";
+import { getDatabase } from "firebase/database";
+// TODO: Add SDKs for Firebase products that you 
+import { getStorage } from "firebase/storage";
+import 'firebase/database';
+
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -19,4 +22,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const storage = getStorage(app);
+export const Database = getDatabase(app);
+
+export default app
+// const analytics = getAnalytics(app);
+
+
+// https://chat.openai.com/share/4f7c6d7f-9206-4be6-ae43-65c9d0262394
