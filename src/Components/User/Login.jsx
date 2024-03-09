@@ -6,10 +6,6 @@ export default function Login() {
   const [email, setemail] = useState(" ");
   const [password, setpassword] = useState(" ");
 
-  const handleButtonClick = () => {
-    console.log("dkjsd");
-  };
-
   return (
     <>
       <div className="login">
@@ -45,7 +41,7 @@ export default function Login() {
               />
             </div>
             <div>
-              <input type="submit" onClick={handleButtonClick} value="Submit" />
+              <input type="submit" value="Submit" />
             </div>
           </div>
           <div className="link">
