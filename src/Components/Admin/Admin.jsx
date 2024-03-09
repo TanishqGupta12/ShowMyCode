@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import  app from '../../Firebase';
+
 import "./Admin.css";
 import { Link } from "react-router-dom";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import AddIcon from "@mui/icons-material/Add";
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+// import { ref as refs, set, push } from "firebase/database";
+import  {storage , Database} from '../../Firebase';
+
+
 export default function Admin() {
   const [status, Setstatus] = useState({
     Book: "",
@@ -12,14 +17,37 @@ export default function Admin() {
     Details: "",
   });
 
-  const [image, setImage] = useState("");
-  const upload = () => {
-    alert("tanishj")
-    if (image == null) return;
-    app
-      .ref(`/images/${image.name}`)
-      .put(image)
-      .on("state_changed", alert("success"), alert);
+  const [file, setfile] = useState(null);
+  const [imgUrl, setImgUrl] = useState(null);
+
+   const uploadFile = () => {
+    if (!file) return;
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        console.log(progress);
+      },
+      (error) => {
+        alert(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImgUrl(downloadURL);
+        });
+      }
+      );
+      alert("Data successfully added to Firestore")
+      console.log(imgUrl)
+      // sendSubmit();
+  };
+
+  const handleFileChange = (e) => {
+    setfile(e.target.files[0]);
   };
 
   const handleStatus = (e) => {
@@ -30,14 +58,17 @@ export default function Admin() {
       [name]: value,
     }));
 
-    setImage(e.target.files[0])
-    console.log(image);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    uploadFile();
   };
   return (
     <>
-      <div className="main_admin">
-        <div className="admin_form">
-        <form onSubmit={upload} >
+    <div className="main_admin">
+      <div className="admin_form">
+        <form onSubmit={handleSubmit}>
           <div>
             <h2> Book Name </h2>
             <input
@@ -50,7 +81,6 @@ export default function Admin() {
           </div>
           <div>
             <h2> Book Category </h2>
-
             <input
               type="text"
               placeholder="Category"
@@ -75,28 +105,25 @@ export default function Admin() {
             <input
               placeholder="file"
               type="file"
-              value={status.file}
-              onChange={handleStatus}
+              onChange={handleFileChange}
               name="file"
+              multiple
             />
           </div>
           <div>
-            <input type="Submit" value="Submit" onClick={handleStatus} />
+            <input type="submit" value="Submit" />
           </div>
-          </form>
-          <div className="icon">
-            <Link to="/List">
-              <ChecklistIcon />
-            </Link>
-            <Link to="/admin">
-              <AddIcon />
-            </Link>
-            <Link to="/admin">
-              <AddAPhotoIcon />
-            </Link>
-          </div>
+        </form>
+        <div className="icon">
+          <Link to="/List">
+            <ChecklistIcon/>
+          </Link>
+          <Link to="/admin">
+            <AddIcon />
+          </Link>
         </div>
       </div>
-    </>
+    </div>   
+  </>
   );
 }
