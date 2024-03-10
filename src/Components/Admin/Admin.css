@@ -62,3 +62,24 @@
   size: 2vmax;
   transform: scale(1.5);
 }
+
+
+.main_admin > .admin_form  > .upload  {
+ 
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+
+}
+.main_admin > .admin_form  > .upload >input[type='file'] {
+  padding: 2vmax;
+   height: 2vmax;
+}
+.main_admin > .admin_form  > .upload >input[type='submit'] {
+  /* padding: 2vmax; */
+   /* height: 2vmax; */
+   width: 10%;
+   position: absolute;
+   top: 2vmax;
+   right: -10px;
+}
