@@ -32,71 +32,76 @@ export default function Admin() {
         file: fileUrl,
       },
     });
-    console.log({
-     
-      file: {
-        image: imgUrl,
-        file: fileUrl,
-      },
-    });
     alert("data successfully uploaded");
   };
 
-  const uploadFile = (e) => {
+  const uploadFile = async (e) => {
     e.preventDefault();
 
-    if (!image && !file) return;
+    if (!image && !file) {
+        alert("Please select an image or a file to upload.");
+        return;
+    }
 
-    const fileStorageRef = ref(
-      storage,
-      `files/${status.Category}/${file.name}`
-    );
-    const imageStorageRef = ref(
-      storage,
-      `images/${status.Category}/${image.name}`
-    );
+    try {
+        const fileStorageRef = ref(
+            storage,
+            `files/${status.Category}/${file.name}`
+        );
+        const imageStorageRef = ref(
+            storage,
+            `images/${status.Category}/${image.name}`
+        );
 
-    const fileUploadTask = uploadBytesResumable(fileStorageRef, file);
-    const imageUploadTask = uploadBytesResumable(imageStorageRef, image);
+        const fileUploadTask = uploadBytesResumable(fileStorageRef, file);
+        const imageUploadTask = uploadBytesResumable(imageStorageRef, image);
 
-    imageUploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // const progress = Math.round(
-        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        // );
-        // console.log(progress);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(imageUploadTask.snapshot.ref).then((downloadURL) => {
-          setImgUrl(downloadURL);
-        });
-      }
-    );
+        imageUploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                // const progress = Math.round(
+                //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                // );
+                // console.log("Image Upload Progress: ", progress + "%");
+            },
+            (error) => {
+                throw new Error("Image upload failed: " + error.message);
+            }
+        );
 
-    fileUploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // const progress = Math.round(
-        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        // );
-        // console.log(progress);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(fileUploadTask.snapshot.ref).then((downloadURL) => {
-          setfileUrl(downloadURL);
-          // console.log(downloadURL);
-        });
-      }
-    );
-    alert("Image or File successfully uploaded");
-  };
+        fileUploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                // const progress = Math.round(
+                //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                // );
+                // console.log("File Upload Progress: ", progress + "%");
+            },
+            (error) => {
+                throw new Error("File upload failed: " + error.message);
+            }
+        );
+
+        await Promise.all([
+            imageUploadTask,
+            fileUploadTask
+        ]);
+
+        const imageUrl = await getDownloadURL(imageUploadTask.snapshot.ref);
+        const fileUrl = await getDownloadURL(fileUploadTask.snapshot.ref);
+        console.log(imageUrl);
+        console.log(fileUrl);
+        setImgUrl(imageUrl);
+        setfileUrl(fileUrl);
+
+        // alert("Image or File successfully uploaded");
+        
+        
+    } catch (error) {
+        console.error("Upload failed:", error.message);
+        alert("Upload failed: " + error.message);
+    }
+};
 
   const handleFileChange = (e) => {};
 
