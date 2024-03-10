@@ -22,7 +22,6 @@ export default function Admin() {
 
   const sendSubmit = () => {
     const dbRef = push(refs(Database, "Book"));
-    console.log(imgUrl);
     // Push data to the database
     set(dbRef, {
       Name: status.Book,
@@ -58,6 +57,7 @@ export default function Admin() {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
+        alert(`image succesfully uploaded ${progress}`)
         console.log(progress);
       },
       (error) => {
@@ -66,7 +66,6 @@ export default function Admin() {
       () => {
         getDownloadURL(imageUploadTask.snapshot.ref).then((downloadURL) => {
           setImgUrl(downloadURL);
-          console.log(downloadURL);
         });
       }
     );
@@ -77,6 +76,7 @@ export default function Admin() {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
+        alert(`file succesfully uploaded ${progress}`)
         console.log(progress);
       },
       (error) => {
