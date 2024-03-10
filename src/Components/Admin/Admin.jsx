@@ -32,6 +32,14 @@ export default function Admin() {
         file: fileUrl,
       },
     });
+    console.log({
+     
+      file: {
+        image: imgUrl,
+        file: fileUrl,
+      },
+    });
+    alert("data successfully uploaded");
   };
 
   const uploadFile = (e) => {
@@ -54,11 +62,10 @@ export default function Admin() {
     imageUploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        alert(`image succesfully uploaded ${progress}`)
-        console.log(progress);
+        // const progress = Math.round(
+        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        // );
+        // console.log(progress);
       },
       (error) => {
         alert(error);
@@ -73,11 +80,10 @@ export default function Admin() {
     fileUploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        alert(`file succesfully uploaded ${progress}`)
-        console.log(progress);
+        // const progress = Math.round(
+        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        // );
+        // console.log(progress);
       },
       (error) => {
         alert(error);
@@ -85,16 +91,14 @@ export default function Admin() {
       () => {
         getDownloadURL(fileUploadTask.snapshot.ref).then((downloadURL) => {
           setfileUrl(downloadURL);
-          console.log(downloadURL);
+          // console.log(downloadURL);
         });
       }
     );
+    alert("Image or File successfully uploaded");
   };
 
-  const handleFileChange = (e) => {
-    setimage(e.target.files[0]);
-    setfile(e.target.files[0]);
-  };
+  const handleFileChange = (e) => {};
 
   const handleStatus = (e) => {
     const { name, value } = e.target;
@@ -114,19 +118,28 @@ export default function Admin() {
       <div className="main_admin">
         <div className="admin_form">
           <form className="upload" onSubmit={uploadFile}>
-            <input
-              placeholder="file"
-              type="file"
-              onChange={handleFileChange}
-              name="file"
-            />
-
-            <input
-              placeholder="file"
-              type="file"
-              onChange={handleFileChange}
-              name="file"
-            />
+            <div>
+              <h4> Book file </h4>
+              <input
+                placeholder="file"
+                type="file"
+                onChange={(e) => {
+                  setfile(e.target.files[0]);
+                }}
+                name="file"
+              />
+            </div>
+            <div>
+              <h4> Book image </h4>
+              <input
+                placeholder="image"
+                type="file"
+                onChange={(e) => {
+                  setimage(e.target.files[0]);
+                }}
+                name="file"
+              />
+            </div>
             <input type="submit" value="upload" />
           </form>
           <form onSubmit={handleSubmit}>

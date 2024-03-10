@@ -83,3 +83,24 @@
    top: 2vmax;
    right: -10px;
 }
+
+
+.main_table {
+  height: 100vh;
+  padding: 10px;
+  overflow: auto;
+
+
+}
+
+.main_table .table {
+  margin-top: 10vh; /* Adjust the top margin instead */
+  scroll-behavior: smooth;
+}
+
+.table .imager {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  margin: 8px 0;
+}

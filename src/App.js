@@ -25,7 +25,7 @@ function App() {
 
         <Route exact path="/Admin" element={<Admin />} />
 
-        <Route exact path="/List" element={<List />} />
+        <Route exact path="/Admin/List" element={<List />} />
       </Routes>
     </div>
   );
