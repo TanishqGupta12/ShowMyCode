@@ -63,6 +63,8 @@ export default function Admin() {
                 //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                 // );
                 // console.log("Image Upload Progress: ", progress + "%");
+                var imageUploadTaskData =  getDownloadURL(snapshot.ref)
+                setImgUrl(imageUploadTaskData)
             },
             (error) => {
                 throw new Error("Image upload failed: " + error.message);
@@ -76,23 +78,25 @@ export default function Admin() {
                 //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                 // );
                 // console.log("File Upload Progress: ", progress + "%");
+                var imageUploadTaskData =  getDownloadURL(snapshot.ref)
+                setfileUrl(imageUploadTaskData)
             },
             (error) => {
                 throw new Error("File upload failed: " + error.message);
             }
         );
 
-        await Promise.all([
-            imageUploadTask,
-            fileUploadTask
-        ]);
+        // await Promise.all([
+        //     imageUploadTask,
+        //     fileUploadTask
+        // ]);
 
-        const imageUrl = await getDownloadURL(imageUploadTask.snapshot.ref);
-        const fileUrl = await getDownloadURL(fileUploadTask.snapshot.ref);
-        console.log(imageUrl);
-        console.log(fileUrl);
-        setImgUrl(imageUrl);
-        setfileUrl(fileUrl);
+        // const imageUrl = await getDownloadURL(imageUploadTask.snapshot.ref);
+        // const fileUrl = await getDownloadURL(fileUploadTask.snapshot.ref);
+        // console.log(imageUrl);
+        // console.log(fileUrl);
+        // setImgUrl(imageUrl);
+        // setfileUrl(fileUrl);
 
         // alert("Image or File successfully uploaded");
         
