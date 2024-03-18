@@ -35,77 +35,76 @@ export default function Admin() {
     alert("data successfully uploaded");
   };
 
-  const uploadFile = async (e) => {
-    e.preventDefault();
-
-    if (!image && !file) {
-        alert("Please select an image or a file to upload.");
-        return;
+  const uploadFile = async () => {
+    if (!file) {
+      alert("Please select an a file to upload.");
+      return;
     }
 
     try {
-        const fileStorageRef = ref(
-            storage,
-            `files/${status.Category}/${file.name}`
-        );
-        const imageStorageRef = ref(
-            storage,
-            `images/${status.Category}/${image.name}`
-        );
+      const fileStorageRef = ref(
+        storage,
+        `files/${status.Category}/${file.name}`
+      );
 
-        const fileUploadTask = uploadBytesResumable(fileStorageRef, file);
-        const imageUploadTask = uploadBytesResumable(imageStorageRef, image);
+      const fileUploadTask = uploadBytesResumable(fileStorageRef, file);
 
-        imageUploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                // const progress = Math.round(
-                //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                // );
-                // console.log("Image Upload Progress: ", progress + "%");
-                var imageUploadTaskData =  getDownloadURL(snapshot.ref)
-                setImgUrl(imageUploadTaskData)
-            },
-            (error) => {
-                throw new Error("Image upload failed: " + error.message);
-            }
-        );
-
-        fileUploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                // const progress = Math.round(
-                //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                // );
-                // console.log("File Upload Progress: ", progress + "%");
-                var imageUploadTaskData =  getDownloadURL(snapshot.ref)
-                setfileUrl(imageUploadTaskData)
-            },
-            (error) => {
-                throw new Error("File upload failed: " + error.message);
-            }
-        );
-
-        // await Promise.all([
-        //     imageUploadTask,
-        //     fileUploadTask
-        // ]);
-
-        // const imageUrl = await getDownloadURL(imageUploadTask.snapshot.ref);
-        // const fileUrl = await getDownloadURL(fileUploadTask.snapshot.ref);
-        // console.log(imageUrl);
-        // console.log(fileUrl);
-        // setImgUrl(imageUrl);
-        // setfileUrl(fileUrl);
-
-        // alert("Image or File successfully uploaded");
-        
-        
+      fileUploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // const progress = Math.round(
+          //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          // );
+          // console.log("File Upload Progress: ", progress + "%");
+          var imageUploadTaskData = getDownloadURL(snapshot.ref);
+          setfileUrl(imageUploadTaskData);
+        },
+        (error) => {
+          throw new Error("File upload failed: " + error.message);
+        }
+      );
+      alert(" File successfully uploaded");
     } catch (error) {
-        console.error("Upload failed:", error.message);
-        alert("Upload failed: " + error.message);
+      console.error("Upload failed:", error.message);
+      alert("Upload failed: " + error.message);
     }
-};
+  };
+
+  const uploadImage = async () => {
+    if (!image) {
+      alert("Please select an image  to upload.");
+      return;
+    }
+
+    try {
+      const imageStorageRef = ref(
+        storage,
+        `images/${status.Category}/${image.name}`
+      );
+
+      const imageUploadTask = uploadBytesResumable(imageStorageRef, image);
+
+      imageUploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // const progress = Math.round(
+          //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          // );
+          // console.log("Image Upload Progress: ", progress + "%");
+          var imageUploadTaskData = getDownloadURL(snapshot.ref);
+          setImgUrl(imageUploadTaskData);
+        },
+        (error) => {
+          throw new Error("Image upload failed: " + error.message);
+        }
+      );
+
+      alert("Image  successfully uploaded");
+    } catch (error) {
+      console.error("Upload failed:", error.message);
+      alert("Upload failed: " + error.message);
+    }
+  };
 
   const handleFileChange = (e) => {};
 
@@ -126,8 +125,42 @@ export default function Admin() {
     <>
       <div className="main_admin">
         <div className="admin_form">
-          <form className="upload" onSubmit={uploadFile}>
-            <div>
+          {/* <form className="upload" onSubmit={uploadFile}> */}
+          <table class="table">
+            <tr>
+              <td scope="row">Book file</td>
+              <td>
+                <input
+                  placeholder="file"
+                  type="file"
+                  onChange={(e) => {
+                    setfile(e.target.files[0]);
+                  }}
+                  name="file"
+                />
+              </td>
+              <td>
+                <input type="submit" value="upload" onClick={uploadFile} />
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Book image</td>
+              <td>
+                <input
+                  placeholder="image"
+                  type="file"
+                  onChange={(e) => {
+                    setimage(e.target.files[0]);
+                  }}
+                  name="file"
+                />
+              </td>
+              <td>
+                <input type="submit" value="upload" onClick={uploadImage} />
+              </td>
+            </tr>
+          </table>
+          {/* <div>
               <h4> Book file </h4>
               <input
                 placeholder="file"
@@ -148,9 +181,9 @@ export default function Admin() {
                 }}
                 name="file"
               />
-            </div>
-            <input type="submit" value="upload" />
-          </form>
+            </div> */}
+          {/* <input type="submit" value="upload" /> */}
+          {/* </form> */}
           <form onSubmit={handleSubmit}>
             <div>
               <h2> Book Name </h2>
