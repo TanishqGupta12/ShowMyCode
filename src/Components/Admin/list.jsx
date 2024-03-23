@@ -28,6 +28,7 @@ export default function List() {
               <th scope="col">#</th>
               <th scope="col">Book Name</th>
               <th scope="col">Category</th>
+              <th scope="col">Book Price</th>
               <th scope="col">Book Image</th>
             </tr>
           </thead>
@@ -38,6 +39,7 @@ export default function List() {
                   <th scope="row">{index + 1}</th>
                   <td>{data.Name}</td>
                   <td>{data.Category}</td>
+                  <td>{data && data.Price !== undefined ? data.Price : "N/A"}</td>
                   <td>
                     {data.file?.file && data.file?.image ? (
                       <a href={data.file.file} target="_blank" rel="noreferrer">
