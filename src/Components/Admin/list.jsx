@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ref as refs, get } from "firebase/database";
 
 import { Database } from "../../Firebase";
-
+import Aside from "../Admin/aside";
 export default function List() {
   const [getdata, setdata] = useState([]);
 
@@ -13,7 +13,6 @@ export default function List() {
     snapshot.val() !== null
       ? setdata(Object.values(snapshot.val()))
       : setdata(false);
-
   };
 
   useEffect(() => {
@@ -22,8 +21,8 @@ export default function List() {
   });
   return (
     <>
-      <div className="main_table">
-        <table class="table">
+      {/* <div className="main_table"> */}
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -33,28 +32,32 @@ export default function List() {
             </tr>
           </thead>
           <tbody>
-            {getdata !=0 ? (
+            {getdata && getdata.length !== 0 ? (
               getdata.map((data, index) => (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>{data.Name}</td>
                   <td>{data.Category}</td>
                   <td>
-                    <a href={data.file.file} target="_blank" rel="noreferrer">
-                      <img className="imager" src={data.file.image} alt="Your Image.." />
-                    </a>
+                    {data.file?.file && data.file?.image ? (
+                      <a href={data.file.file} target="_blank" rel="noreferrer">
+                        <img className="imager" src={data.file.image} alt="" />
+                      </a>
+                    ) : (
+                      <span>No image available</span>
+                      )}
                   </td>
                 </tr>
               ))
-            ) : (
-              <tr>
+              ) : (
+                <tr>
                 <td colSpan="4">No data available in the database</td>
               </tr>
             )}
           </tbody>
-
         </table>
-      </div>
+      {/* </div> */}
+            <Aside />
     </>
   );
 }
