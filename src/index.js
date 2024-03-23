@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Navbar />
 
-    <div className="main">
+    <div className="body_main">
       <BrowserRouter>
         <App />
         <Analytics/>

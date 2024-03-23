@@ -13,6 +13,6 @@ body {
   background-image: url("../public/bg.png");
 }
 
-.main {
-  height: 100vh;
+.body_main {
+  height: 100%;
 }
