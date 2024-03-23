@@ -13,7 +13,6 @@ export default function List() {
     snapshot.val() !== null
       ? setdata(Object.values(snapshot.val()))
       : setdata(false);
-
   };
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function List() {
             </tr>
           </thead>
           <tbody>
-            {getdata !=0 ? (
+            {getdata !== 0 ? (
               getdata.map((data, index) => (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
@@ -41,7 +40,7 @@ export default function List() {
                   <td>{data.Category}</td>
                   <td>
                     <a href={data.file.file} target="_blank" rel="noreferrer">
-                      <img className="imager" src={data.file.image} alt="Your Image.." />
+                      <img className="imager" src={data.file.image} alt="" />
                     </a>
                   </td>
                 </tr>
@@ -52,7 +51,6 @@ export default function List() {
               </tr>
             )}
           </tbody>
-
         </table>
       </div>
     </>
