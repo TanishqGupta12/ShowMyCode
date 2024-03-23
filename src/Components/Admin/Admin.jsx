@@ -20,12 +20,17 @@ export default function Admin() {
       Name: status.Book,
       Category: status.Category,
       Details: status.Category,
-      // file: {
-      //   image: imgUrl,
-      //   file: fileUrl,
-      // },
+      file: {
+        image: localStorage.getItem("image"),
+        file: localStorage.getItem("file"),
+      },
     });
     alert("data successfully uploaded");
+    // console.log( {
+    //   image: localStorage.getItem("image"),
+    //   file: localStorage.getItem("file"),
+    // });
+    localStorage.clear();
   };
 
   const handleStatus = (e) => {

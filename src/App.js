@@ -6,6 +6,7 @@ import Login from "../src/Components/User/Login";
 import Sign from "../src/Components/User/Sign_up";
 import Admin from "../src/Components/Admin/Admin";
 import List from "../src/Components/Admin/list";
+import Admin_upload from "../src/Components/Admin/Admin_upload";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/Admin" element={<Admin />} />
 
         <Route exact path="/Admin/List" element={<List />} />
+        <Route exact path="/Admin/file/upload" element={<Admin_upload />} />
       </Routes>
     </div>
   );

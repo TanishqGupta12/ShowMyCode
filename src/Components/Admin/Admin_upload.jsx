@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Admin.css";
-import { Link } from "react-router-dom";
+import Aside from "../Admin/aside";
 
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-// import { ref as refs, set, push } from "firebase/database";
 import { storage } from "../../Firebase";
 
 export default function Admin_upload() {
   const [imgUrl, setImgUrl] = useState(null);
-  const [image, setimage] = useState("");
+  const [image, setImage] = useState("");
 
-  const [file, setfile] = useState(null);
-  const [fileUrl, setfileUrl] = useState("");
+  const [file, setFile] = useState(null);
+  const [fileUrl, setFileUrl] = useState("");
+
+  const [imageProgress, setImageProgress] = useState(0);
+  const [fileProgress, setFileProgress] = useState(0);
+
   const uploadFile = () => {
     if (!file) {
       alert("Please select a file to upload.");
@@ -19,20 +22,18 @@ export default function Admin_upload() {
     }
 
     try {
-      const fileStorageRef = ref(
-        storage,
-        `files/${status.Category}/${file.name}`
-      );
+      const fileStorageRef = ref(storage, `files/${file.name}`);
 
       const fileUploadTask = uploadBytesResumable(fileStorageRef, file);
 
       fileUploadTask.on(
         "state_changed",
         (snapshot) => {
-          // Track upload progress if needed
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("File Upload Progress: ", progress + "%");
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setFileProgress(progress);
+          // console.log("File Upload Progress: ", progress + "%");
         },
         (error) => {
           throw new Error("File upload failed: " + error.message);
@@ -40,11 +41,11 @@ export default function Admin_upload() {
         async () => {
           try {
             const downloadURL = await getDownloadURL(fileStorageRef);
-            setfileUrl(downloadURL);
-            console.log(
-              "File uploaded successfully. Download URL:",
-              downloadURL
-            );
+            setFileUrl(downloadURL);
+            // console.log(
+            //   "File uploaded successfully. Download URL:",
+            //   downloadURL
+            // );
             alert("File successfully uploaded");
           } catch (error) {
             console.error("Failed to get download URL:", error.message);
@@ -65,20 +66,18 @@ export default function Admin_upload() {
     }
 
     try {
-      const imageStorageRef = ref(
-        storage,
-        `images/${status.Category}/${image.name}`
-      );
+      const imageStorageRef = ref(storage, `images/${image.name}`);
 
       const imageUploadTask = uploadBytesResumable(imageStorageRef, image);
 
       imageUploadTask.on(
         "state_changed",
         (snapshot) => {
-          // Track upload progress if needed
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("File Upload Progress: ", progress + "%");
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setImageProgress(progress);
+          // console.log("Image Upload Progress: ", progress + "%");
         },
         (error) => {
           throw new Error("Image upload failed: " + error.message);
@@ -87,10 +86,10 @@ export default function Admin_upload() {
           try {
             const downloadURL = await getDownloadURL(imageStorageRef);
             setImgUrl(downloadURL);
-            console.log(
-              "Image uploaded successfully. Download URL:",
-              downloadURL
-            );
+            // console.log(
+            //   "Image uploaded successfully. Download URL:",
+            //   downloadURL
+            // );
             alert("Image successfully uploaded");
           } catch (error) {
             console.error("Failed to get download URL:", error.message);
@@ -103,42 +102,83 @@ export default function Admin_upload() {
       alert("Upload failed: " + error.message);
     }
   };
+  useEffect(()=>{
+    localStorage.setItem("file", fileUrl);
+    localStorage.setItem("image", imgUrl);
+  }, [imgUrl , fileUrl])
+
+  const inputImageRef = useRef(null);
+  const handleTextImageClick = () => {
+    inputImageRef.current.click();
+  };
+
+  const inputFileRef = useRef(null);
+  const handleTextFileClick = () => {
+    inputFileRef.current.click();
+  };
+
   return (
     <>
-      <table class="table">
-        <tr>
-          <td scope="row">Book file</td>
-          <td>
-            <input
-              placeholder="file"
-              type="file"
-              onChange={(e) => {
-                setfile(e.target.files[0]);
-              }}
-              name="file"
-            />
-          </td>
-          <td>
-            <input type="submit" value="upload" onClick={uploadFile} />
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">Book image</td>
-          <td>
-            <input
-              placeholder="image"
-              type="file"
-              onChange={(e) => {
-                setimage(e.target.files[0]);
-              }}
-              name="file"
-            />
-          </td>
-          <td>
-            <input type="submit" value="upload" onClick={uploadImage} />
-          </td>
-        </tr>
-      </table>
+      <div className="admin_upload">
+        <div className="container">
+          <div className="card">
+            <h3>Upload Image</h3>
+            <div className="drop_box">
+              <header>
+                <h4
+                  onClick={handleTextImageClick}
+                  style={{ cursor: "pointer" }}
+                >
+                  Select Image here
+                </h4>
+              </header>
+              <p>Progress {imageProgress}</p>
+              <input
+                ref={inputImageRef}
+                hidden
+                accept="image/*"
+                type="file"
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
+                name="image"
+              />
+              <button className="btn" onClick={uploadImage}>
+                Submit Image
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="card">
+            <h3>Upload Files</h3>
+            <div className="drop_box">
+              <header>
+                <h4 onClick={handleTextFileClick} style={{ cursor: "pointer" }}>
+                  Select File here
+                </h4>
+              </header>
+              <p>Progress {fileProgress}</p>
+              <input
+                ref={inputFileRef}
+                hidden
+                accept=".doc,.docx,.pdf"
+                type="file"
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+                name="file"
+              />
+              <button className="btn" onClick={uploadFile}>
+                Submit File
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="aside_nav" >
+        <Aside />
+      </div>
     </>
   );
 }
