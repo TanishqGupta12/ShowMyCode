@@ -5,7 +5,7 @@ import "./Admin.css";
 import { ref as refs, set, push } from "firebase/database";
 import { Database } from "../../Firebase";
 
-// import Aside from "../Admin/aside";
+import Aside from "../Admin/aside";
 export default function Admin() {
   const [status, Setstatus] = useState({
     Book: "",
@@ -42,46 +42,53 @@ export default function Admin() {
   };
 
   return (
-      <div className="main_admin">
-        <div className="admin_form">
-          <form onSubmit={handleSubmit}>
-            <div>
-              <h2> Book Name </h2>
-              <input
-                type="text"
-                placeholder="Name"
-                value={status.Book}
-                onChange={handleStatus}
-                name="Book"
-              />
-            </div>
-            <div>
-              <h2> Book Category </h2>
-              <input
-                type="text"
-                placeholder="Category"
-                value={status.Category}
-                onChange={handleStatus}
-                name="Category"
-              />
-            </div>
-            <div>
-              <h2> Book Details </h2>
-              <textarea
-                placeholder="Details"
-                id="w3review"
-                name="Details"
-                rows="4"
-                cols="80"
-                value={status.Details}
-                onChange={handleStatus}
-              ></textarea>
-            </div>
-            <div>
-              <input type="submit" value="Submit" />
-            </div>
-          </form>
+    <div className="aside">
+      <div>
+        <Aside />
+      </div>
+      <div>
+        <div className="main_admin">
+          <div className="admin_form">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <h2> Book Name </h2>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={status.Book}
+                  onChange={handleStatus}
+                  name="Book"
+                />
+              </div>
+              <div>
+                <h2> Book Category </h2>
+                <input
+                  type="text"
+                  placeholder="Category"
+                  value={status.Category}
+                  onChange={handleStatus}
+                  name="Category"
+                />
+              </div>
+              <div>
+                <h2> Book Details </h2>
+                <textarea
+                  placeholder="Details"
+                  id="w3review"
+                  name="Details"
+                  rows="4"
+                  cols="80"
+                  value={status.Details}
+                  onChange={handleStatus}
+                ></textarea>
+              </div>
+              <div>
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+    </div>
   );
 }
