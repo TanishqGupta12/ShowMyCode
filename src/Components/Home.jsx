@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import Reviews from "./Reviews";
+import Reviews from "./Reviews";
 import Section from "./Section";
 
 
@@ -9,7 +9,7 @@ export default function Home() {
     <>
     <Section/>
 
-    {/* <Reviews/> */}
+    <Reviews/>
     </>
   )
 }
