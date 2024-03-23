@@ -11,6 +11,7 @@ export default function Admin() {
     Book: "",
     Category: "",
     Details: "",
+    Price: "",
   });
 
   const sendSubmit = () => {
@@ -20,6 +21,7 @@ export default function Admin() {
       Name: status.Book,
       Category: status.Category,
       Details: status.Category,
+      Price: status.Price,
       file: {
         image: localStorage.getItem("image"),
         file: localStorage.getItem("file"),
@@ -33,8 +35,6 @@ export default function Admin() {
     localStorage.clear();
   };
 
-
-  const handleFileChange = (e) => {};
 
   const handleStatus = (e) => {
     const { name, value } = e.target;
@@ -51,7 +51,6 @@ export default function Admin() {
 
   return (
     <>
-        <Aside/>
       <div className="main_admin">
         <div className="admin_form">
           <form onSubmit={handleSubmit}>
@@ -81,11 +80,22 @@ export default function Admin() {
                 placeholder="Details"
                 id="w3review"
                 name="Details"
-                rows="4"
+                rows="3"
                 cols="80"
                 value={status.Details}
                 onChange={handleStatus}
               ></textarea>
+            </div>
+            <div>
+              <h2> Book Price </h2>
+
+              <input
+                type="text"
+                placeholder="Price"
+                value={status.Price}
+                onChange={handleStatus}
+                name="Price"
+              />
             </div>
             <div>
               <input type="submit" value="Submit" />
@@ -93,6 +103,7 @@ export default function Admin() {
           </form>
         </div>
       </div>
+      <Aside />
     </>
   );
 }
