@@ -2,6 +2,8 @@ import About from "./Components/About";
 import Home from "./Components/Home";
 import Blog from "./Components/blog";
 
+import Book_products from "./Components/Book_products";
+
 import Login from "../src/Components/User/Login";
 import Sign from "../src/Components/User/Sign_up";
 import Admin from "../src/Components/Admin/Admin";
@@ -24,8 +26,9 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/Sign" element={<Sign />} />
 
-        <Route exact path="/Admin" element={<Admin />} />
+        <Route exact path="/book/list" element={<Book_products />} />
 
+        <Route exact path="/Admin" element={<Admin />} />
         <Route exact path="/Admin/List" element={<List />} />
         <Route exact path="/Admin/file/upload" element={<Admin_upload />} />
       </Routes>
