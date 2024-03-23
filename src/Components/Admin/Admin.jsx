@@ -26,6 +26,7 @@ export default function Admin() {
       },
     });
     alert("data successfully uploaded");
+    localStorage.clear
   };
 
 
