@@ -26,7 +26,11 @@ export default function Admin() {
       },
     });
     alert("data successfully uploaded");
-    localStorage.clear
+    // console.log( {
+    //   image: localStorage.getItem("image"),
+    //   file: localStorage.getItem("file"),
+    // });
+    localStorage.clear();
   };
 
 
