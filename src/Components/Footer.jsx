@@ -1,53 +1,50 @@
-import React from 'react'
+import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Footer() {
   return (
     <>
-        <footer>
-        <div class="footer_main">
-
-            <div class="tag">
-            <img src={process.env.PUBLIC_URL + './logo.png'} alt='...' />
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est quaerat ipsa aspernatur ad
-                    sequi, dolore eveniet vitae quasi. Excepturi ipsa odio impedit sequi at hic velit, minus
-                    vero sint. Voluptas?
-                </p>
-
-            </div>
-
-            {/* <div class="tag">
-                <h1>Quick Link</h1>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Featured</a>
-                <a href="#">Arrivals</a>
-                <a href="#">Reviews</a>
-                <a href="#">Blog</a>
-
-            </div> */}
-
-            <div class="tag">
-                <h1>Contact Info</h1>
-                <a href="#.."><i class="fa-solid fa-phone"></i>+94 12 345 6789</a>
-                <a href="#.."><i class="fa-solid fa-phone"></i>+94 32 444 699</a>
-                <a href="#.."><i class="fa-solid fa-envelope"></i>bookstore123@gmail.com</a>
-
-            </div>
-
-            <div class="tag">
-                <h1>Newsletter</h1>
-                <div class="search_bar">
-                    <input type="text" placeholder="You email id here"/>
-                    <button type="submit">Subscribe</button>
-                </div>
-            </div>
-
+      <footer id="picassoFooter">
+        <div class="footer-navigation">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/About">About Us</a>
+            </li>
+            <li>
+              <a href="/Blog">Blog</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
-
-
-    </footer>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: info@example.com</p>
+          <p>Phone: +123 456 7890</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+              FB
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-icon">
+              TW
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+              IG
+            </a>
+          </div>
+        </div>
+        <div class="footer-art">
+          <canvas id="picassoCanvas"></canvas>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
