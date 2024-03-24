@@ -11,6 +11,7 @@ body {
   margin: 0;
   font-family: "Kanit", sans-serif;
   background-image: url("../public/bg.png");
+  height: 100vh;
 }
 
 .body_main {

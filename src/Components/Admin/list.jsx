@@ -21,7 +21,8 @@ export default function List() {
   });
   return (
     <>
-      {/* <div className="main_table"> */}
+    <Aside />
+      <div className="main_table">
         <table className="table">
           <thead>
             <tr>
@@ -58,8 +59,7 @@ export default function List() {
             )}
           </tbody>
         </table>
-      {/* </div> */}
-            <Aside />
+      </div>
     </>
   );
 }

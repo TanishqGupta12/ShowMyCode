@@ -8,6 +8,7 @@ li {
   padding: 1vmax;
 }
 .main_admin {
+  padding: 5vmax;
   display: flex;
   justify-content: center;
 }
@@ -51,7 +52,7 @@ li {
 
 
 .main_table {
-  padding: 20px; /* Increase padding to increase the size of the table */
+  padding: 5vmax; /* Increase padding to increase the size of the table */
   overflow: auto;
 }
 

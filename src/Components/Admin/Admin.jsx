@@ -20,7 +20,7 @@ export default function Admin() {
     set(dbRef, {
       Name: status.Book,
       Category: status.Category,
-      Details: status.Category,
+      Details: status.Details,
       Price: status.Price,
       file: {
         image: localStorage.getItem("image"),
@@ -48,7 +48,7 @@ export default function Admin() {
     e.preventDefault();
     sendSubmit();
   };
-
+  
   return (
     <>
       <div className="main_admin">
