@@ -21,34 +21,31 @@ export default function Book_products() {
   });
   return (
     <>
-      <div className="Book_products">
+      <div className="produc_head">
         {getdata.slice(0, 4).map((data, index) => (
-          <div class=" wrappers" key={index}>
-            <div class="product-imgs">
-              <img src={data.file?.image}  alt={data.Name} height="420" width="327" />
+          <div class=" product-card" key={index}>
+            {/* <div class="badge">Hot</div> */}
+            <div class="product-tumb">
+              <img src={data.file?.image} alt={data.Name} />
             </div>
-            <div class="product-infos">
-              <div class="product-texts">
-                <h1>{data.Name}</h1>
-                <h2>{data.Category} s</h2>
-                <p>
-                {data.Details}
-                  {/* Harvest Vases are a reinterpretation
-                  <br />
-                  of peeled fruits and vegetables as
-                  <br />
-                  functional objects. The surfaces
-                  <br />
-                  appear to be sliced and pulled aside,
-                  <br />
-                  allowing room for growth. */}
-                </p>
-              </div>
-              <div class="product-price-btns">
-                <p>
-                  <span>{data.Price}</span>$
-                </p>
-                <button type="button">buy now</button>
+            <div class="product-details">
+              <span class="product-catagory">{data.Category} sds</span>
+              <h4>
+                <a href={data.file?.file} >{data.Name}</a>
+              </h4>
+              <p>{data.Details}</p>
+              <div class="product-bottom-details">
+                <div class="product-price">
+                  Price :{data.Price}
+                </div>
+                {/* <div class="product-links">
+                  <a href="">
+                    <i class="fa fa-heart"></i>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-shopping-cart"></i>
+                  </a>
+                </div> */}
               </div>
             </div>
           </div>
