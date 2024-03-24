@@ -17,11 +17,13 @@ export default function Admin() {
   const sendSubmit = () => {
     const dbRef = push(refs(Database, "Book"));
     // Push data to the database
+    const date = new Date().toLocaleString();
     set(dbRef, {
       Name: status.Book,
       Category: status.Category,
       Details: status.Details,
       Price: status.Price,
+      Created_at: date,
       file: {
         image: localStorage.getItem("image"),
         file: localStorage.getItem("file"),
