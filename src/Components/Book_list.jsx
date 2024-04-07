@@ -20,32 +20,23 @@ export default function Book_list() {
   });
   return (
     <>
-      <div className="head_card">
-        {getdata.slice(0, 4).map((data, index) => (
-          <div className="card_paading">
-            <article className="card_main" key={index}>
+        <div class="product-container">
+          {getdata.slice(0, 4).map((data, index) => (
+            <div class="product-card" key={index}>
               <a href={data.file?.file} target="_blank">
                 <img
-                  className="card__background"
                   src={data.file.image}
                   alt={data.Name}
-                  width="1920"
-                  height="2193"
+                  class="product-image"
                 />
               </a>
-
-              <div className="card__content | flow">
-                <div className="card__content--container | flow">
-                  <h2 className="card__title">{data.Name}</h2>
-                  <a>
-                  <p className="card__description">Price: {data.Price}</p>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-        ))}
-      </div>
+              <h3 class="product-name">{data.Name}</h3>
+              {/* <p class="product-description">Product Description</p> */}
+              <div class="product-price">$ {data.Price}</div>
+              <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+          ))}
+        </div>
     </>
   );
 }
