@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import Util from "../../util/util";
 
 export default function Login() {
   const auth = getAuth();
   const [email, setemail] = useState(" ");
   const [password, setpassword] = useState(" ");
+  const util = new Util();
 
   const handleSign = () => {
-
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         // console.log(user);
         sessionStorage.setItem("currentuser", user.uid);
-        alert(" Succeessfully login ")
+        alert(" Succeessfully login ");
+        util.refreshPage()
       })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage)
+        alert(errorMessage);
       });
   };
 

@@ -3,19 +3,18 @@ import Typography from "@mui/material/Typography";
 import banner from "../../image/seven-shooter-hPKTYwJ4FUo-unsplash.jpg";
 import "./user.css";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword , updateProfile } from "firebase/auth"; // Import createUserWithEmailAndPassword correctly
+import { createUserWithEmailAndPassword , updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../Firebase";
-
+import Util from "../../util/util";
 export default function Login() {
   const [Full_name, setFull_name] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [c_password, setc_password] = useState("");
   const navigate = useNavigate();
-
-  // const auth = auth();
+  const util = new Util();
   const myInlineStyle = {
     textAlign: "center",
     padding: "20px",
@@ -45,6 +44,7 @@ export default function Login() {
           });
         navigate("/");
         alert("User signed up successfully")
+        util.refreshPage()
       })
       .catch((error) => {
         const errorCode = error.code;
