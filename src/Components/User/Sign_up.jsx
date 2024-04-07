@@ -4,8 +4,6 @@ import banner from "../../image/seven-shooter-hPKTYwJ4FUo-unsplash.jpg";
 import "./user.css";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword , updateProfile } from "firebase/auth"; // Import createUserWithEmailAndPassword correctly
-// Import initializeApp to initialize Firebase
-// Import getAuth to get the auth object
 import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../Firebase";
@@ -36,7 +34,7 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("User signed up successfully:", user.UserImpl);
+        sessionStorage.setItem("currentuser",  user.uid);
         updateProfile(user, {
           displayName: Full_name,
         }).then(() => {

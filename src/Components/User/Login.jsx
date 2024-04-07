@@ -1,10 +1,29 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
+  const auth = getAuth();
   const [email, setemail] = useState(" ");
   const [password, setpassword] = useState(" ");
+
+  const handleSign = () => {
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // console.log(user);
+        sessionStorage.setItem("currentuser", user.uid);
+        alert(" Succeessfully login ")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage)
+      });
+  };
 
   return (
     <>
@@ -41,12 +60,12 @@ export default function Login() {
               />
             </div>
             <div>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" onClick={handleSign} />
             </div>
+            <Link className="link" to="/Sign">
+              Sign Up
+            </Link>
           </div>
-          <div className="link">
-              <Link to="/Sign">Sign Up</Link>
-            </div>
         </div>
       </div>
     </>

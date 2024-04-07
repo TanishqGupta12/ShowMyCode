@@ -10,9 +10,9 @@ function Navbar() {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        localStorage.removeItem("currentUser");
+        sessionStorage.removeItem("currentuser");
         navigate("/"); // Redirect to home page
-        console.log("Signed out successfully");
+        // console.log("Signed out successfully");
       })
       .catch((error) => {
         // An error happened.
@@ -40,7 +40,8 @@ function Navbar() {
             <li>
               <a href="/Blog">Blog</a>
             </li>
-            {localStorage.getItem("currentUser") ? (
+            {/* {console.log(sessionStorage)} */}
+            {sessionStorage.getItem("currentuser") ? (
               <li>
                 <a href="#">Profile &darr;</a>
                 <ul>
