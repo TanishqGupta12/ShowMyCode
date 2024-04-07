@@ -22,14 +22,14 @@ export default function Book_products() {
   return (
     <>
       <div className="produc_head">
-        {getdata.slice(0, 4).map((data, index) => (
+        {getdata.slice(0, 3).map((data, index) => (
           <div class=" product-card" key={index}>
             {/* <div class="badge">Hot</div> */}
             <div class="product-tumb">
               <img src={data.file?.image} alt={data.Name} />
             </div>
             <div class="product-details">
-              <span class="product-catagory">{data.Category} sds</span>
+              <span class="product-catagory">Category: {data.Category}</span>
               <h4>
                 <a href={data.file?.file}>{data.Name}</a>
               </h4>

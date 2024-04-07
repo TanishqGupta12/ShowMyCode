@@ -36,18 +36,17 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        localStorage.setItem("currentUser", user.UserImpl);
-        console.log("User signed up successfully:", user);
+        console.log("User signed up successfully:", user.UserImpl);
         updateProfile(user, {
-          displayName: Full_name, // Replace displayName with the value you want to set
-        })
-          .then(() => {
+          displayName: Full_name,
+        }).then(() => {
             console.log("Display name updated successfully");
           })
           .catch((error) => {
             console.error("Error updating display name:", error);
           });
         navigate("/");
+        alert("User signed up successfully")
       })
       .catch((error) => {
         const errorCode = error.code;
