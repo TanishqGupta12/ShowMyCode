@@ -3,10 +3,10 @@ import Typography from "@mui/material/Typography";
 import banner from "../../image/seven-shooter-hPKTYwJ4FUo-unsplash.jpg";
 import "./user.css";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth"; // Import createUserWithEmailAndPassword correctly
- // Import initializeApp to initialize Firebase
- // Import getAuth to get the auth object
-import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword , updateProfile } from "firebase/auth"; // Import createUserWithEmailAndPassword correctly
+// Import initializeApp to initialize Firebase
+// Import getAuth to get the auth object
+import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../Firebase";
 
@@ -36,7 +36,17 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        localStorage.setItem("currentUser", user.UserImpl);
         console.log("User signed up successfully:", user);
+        updateProfile(user, {
+          displayName: Full_name, // Replace displayName with the value you want to set
+        })
+          .then(() => {
+            console.log("Display name updated successfully");
+          })
+          .catch((error) => {
+            console.error("Error updating display name:", error);
+          });
         navigate("/");
       })
       .catch((error) => {
