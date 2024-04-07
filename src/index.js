@@ -6,19 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Navbar />
-
-    <div className="body_main">
-      <BrowserRouter>
-        <App />
-        <Analytics/>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <App />
+      <Analytics />
+    </BrowserRouter>
     <Footer />
   </React.StrictMode>
 );

@@ -16,9 +16,6 @@ body {
   height: 100vh;
 }
 
-.body_main {
-  height: 100%;
-}
 .product_button{
   display: flex;
   align-items: center;
