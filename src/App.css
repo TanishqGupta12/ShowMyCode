@@ -46,6 +46,10 @@
   font-weight: 500;
 }
 
+.navbar .navigation ul li:hover {
+  cursor: pointer;
+}
+
 .navbar .navigation ul li a {
   color: black;
   text-decoration: none;
@@ -55,9 +59,6 @@
   color: #3ca0e7;
 }
 
-.navbar .navigation ul li:hover {
-  cursor: pointer;
-}
 
 .navbar .navigation ul li ul {
   visibility: hidden;
@@ -78,17 +79,20 @@
   visibility: visible;
   opacity: 1;
   display: block;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .navbar .navigation ul li ul a:hover {
-  visibility: visible;
-  opacity: 1;
-  display: block;
-  padding-top: 20px;
+  /* visibility: visible; */
+  /* opacity: 1; */
+  /* display: block; */
+  padding-top: 5px;
 }
 
 .navbar .navigation ul li ul li {
+  visibility: visible;
+  opacity: 1;
+  display: block;
   width: 100%;
   margin: 0;
   border: none;
@@ -268,6 +272,7 @@ a:hover {
   background-image: url("../public/banner.jpg");
   background-size: cover;
   background-position: center;
+  margin-top: 2%;
 }
 
 .banner .banner_btn {
