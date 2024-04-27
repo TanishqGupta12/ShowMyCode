@@ -1,25 +1,24 @@
-import React from "react";
+import React ,{useRef} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../Firebase";
 import { signOut } from "firebase/auth";
 
+
 function Navbar() {
   const navigate = useNavigate();
-
   const handleLogout = () => {
     signOut(auth)
-      .then(() => {
-        sessionStorage.removeItem("currentuser");
-        navigate("/"); // Redirect to home page
-        // console.log("Signed out successfully");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  };
-
+    .then(() => {
+      sessionStorage.removeItem("currentuser");
+      navigate("/"); // Redirect to home page
+      // console.log("Signed out successfully");
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
+  };  
   return (
     <>
       <div className="navbar">
@@ -51,7 +50,7 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a href="#">Web Design</a>
+                    <a href="#">Profile</a>
                   </li>
                   <li>
                     <a href="#">Illustration</a>

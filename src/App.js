@@ -6,6 +6,8 @@ import Book_products from "./Components/Book_products";
 
 import Login from "../src/Components/User/Login";
 import Sign from "../src/Components/User/Sign_up";
+
+import Profile_update from "../src/Components/User/profile_update";
 import Admin from "../src/Components/Admin/Admin";
 import List from "../src/Components/Admin/list";
 import Admin_upload from "../src/Components/Admin/Admin_upload";
@@ -31,6 +33,9 @@ function App() {
         <Route exact path="/Admin" element={<Admin />} />
         <Route exact path="/Admin/List" element={<List />} />
         <Route exact path="/Admin/file/upload" element={<Admin_upload />} />
+
+        <Route exact path="/user/profile" element={<Profile_update />} />
+
       </Routes>
     </div>
   );
