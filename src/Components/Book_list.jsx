@@ -23,7 +23,7 @@ export default function Book_list() {
         <div class="product-container">
           {getdata.slice(0, 4).map((data, index) => (
             <div class="product-card" key={index}>
-              <a href={data.file?.file} target="_blank">
+              <a href={data.file?.file} target="_blank" without rel="noreferrer">
                 <img
                   src={data.file.image}
                   alt={data.Name}

@@ -2,13 +2,13 @@ import About from "./Components/About";
 import Home from "./Components/Home";
 import Blog from "./Components/blog";
 
-import Book_products from "./Components/Book_products";
+import Bookproducts from "./Components/Book_products";
 
 import Login from "../src/Components/User/Login";
 import Sign from "../src/Components/User/Sign_up";
 import Admin from "../src/Components/Admin/Admin";
 import List from "../src/Components/Admin/list";
-import Admin_upload from "../src/Components/Admin/Admin_upload";
+import Adminupload from "../src/Components/Admin/Admin_upload";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -26,11 +26,11 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/Sign" element={<Sign />} />
 
-        <Route exact path="/book/list" element={<Book_products />} />
+        <Route exact path="/book/list" element={<Bookproducts />} />
 
         <Route exact path="/Admin" element={<Admin />} />
         <Route exact path="/Admin/List" element={<List />} />
-        <Route exact path="/Admin/file/upload" element={<Admin_upload />} />
+        <Route exact path="/Admin/file/upload" element={<Adminupload />} />
       </Routes>
     </div>
   );
