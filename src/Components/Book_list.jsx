@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import { ref as refs, get } from "firebase/database";
+import { ref as refs, get ,set, push  } from "firebase/database";
 
 import { Database } from "../Firebase";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,12 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Book_list() {
   const [getdata, setdata] = useState([]);
 
-
   useEffect(() => {
-
     const fetchData = async () => {
       const snapshot = await get(refs(Database, "Book"));
-  
+
       snapshot.val() !== null
         ? setdata(Object.values(snapshot.val()))
         : setdata(false);
@@ -28,22 +26,22 @@ export default function Book_list() {
     event.preventDefault(); // Prevent default behavior of the event (e.g., form submission)
     var currentuser = sessionStorage.getItem("currentuser");
     if (!currentuser) {
-        console.log(currentuser);
-        toast("Please login", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-        });
+      console.log(currentuser);
+      toast("Please login", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
-        // Handle the case when currentuser is truthy
-        console.log("User is logged in:", currentuser);
+      // Handle the case when currentuser is truthy
+      console.log("User is logged in:", currentuser);
     }
-}
+  }
 
   return (
     <>
@@ -66,7 +64,7 @@ export default function Book_list() {
           </div>
         ))}
       </div>
-        <ToastContainer />
+      <ToastContainer />
     </>
   );
 }
