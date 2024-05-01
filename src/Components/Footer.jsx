@@ -30,13 +30,13 @@ export default function Footer() {
         <div class="footer-social">
           <h3>Follow Us</h3>
           <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" class="social-icon">
+            <a href="https://facebook.com" target="_blank" class="social-icon" rel="noreferrer">
               FB
             </a>
-            <a href="https://twitter.com" target="_blank" class="social-icon">
+            <a href="https://twitter.com" target="_blank" class="social-icon" rel="noreferrer">
               TW
             </a>
-            <a href="https://instagram.com" target="_blank" class="social-icon">
+            <a href="https://instagram.com" target="_blank" class="social-icon" rel="noreferrer">
               IG
             </a>
           </div>
