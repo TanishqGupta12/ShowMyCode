@@ -4,30 +4,10 @@ import "./user.css";
 export default function Profile_update() {
   return (
     <>
-      <div class="container rounded bg-white mt-5">
-        <div class="row">
-          <div class="col-md-4 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img
-                class="rounded-circle mt-5"
-                src="https://i.imgur.com/0eg0aG0.jpg"
-                width="90"
-                alt="alt"
-              />
-              <span class="font-weight-bold">John Doe</span>
-              <span class="text-black-50">john_doe12@bbb.com</span>
-              <span>United States</span>
-            </div>
-          </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {/* <div class=""> */}
           <div class="col-md-8">
             <div class="p-3 py-5">
-              {/* <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="d-flex flex-row align-items-center back">
-                  <i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-                  <h6>Back to home</h6>
-                </div>
-                <h6 class="text-right">Edit Profile</h6>
-              </div> */}
               <div class="row mt-2">
                 <div class="col-md-6">
                   <input
@@ -107,7 +87,7 @@ export default function Profile_update() {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

@@ -6,8 +6,10 @@ import { Database } from "../Firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { itemcheckout } from "../util/item.js";
 export default function Book_list() {
   const [getdata, setdata] = useState([]);
+  const [getBook, setBook] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,9 +23,10 @@ export default function Book_list() {
     // console.log(getdata[0]);
   });
 
-  const cureentstatus = useRef(null);
-  function ccurrentstatus(event) {
-    event.preventDefault(); // Prevent default behavior of the event (e.g., form submission)
+  const focusPoint = useRef(null);
+
+  function ccurrentstatus() {
+    // Prevent default behavior of the event (e.g., form submission)
     var currentuser = sessionStorage.getItem("currentuser");
     if (!currentuser) {
       console.log(currentuser);
@@ -38,8 +41,11 @@ export default function Book_list() {
         theme: "light",
       });
     } else {
-      // Handle the case when currentuser is truthy
-      console.log("User is logged in:", currentuser);
+      let collection ={
+        user_id : currentuser,
+        // Book_name : focusPoint.current.textContent
+      }
+      itemcheckout(collection)
     }
   }
 
@@ -55,7 +61,7 @@ export default function Book_list() {
                 class="product-image"
               />
             </a>
-            <h3 class="product-name">{data.Name}</h3>
+            <h3 class="product-name">  {data.Name}</h3>
             {/* <p class="product-description">Product Description</p> */}
             <div class="product-price">$ {data.Price}</div>
             <button class="add-to-cart-button" onClick={ccurrentstatus}>

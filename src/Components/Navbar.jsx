@@ -50,10 +50,10 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a href="#">Profile</a>
+                    <a href="/user/profile">Profile</a>
                   </li>
                   <li>
-                    <a href="#">Illustration</a>
+                    <a href="#">My Book</a>
                   </li>
                   <li>
                     <a href="#">Iconography</a>
