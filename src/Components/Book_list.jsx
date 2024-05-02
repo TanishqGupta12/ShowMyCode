@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-import { ref as refs, get ,set, push  } from "firebase/database";
+import { ref as refs, get, set, push } from "firebase/database";
 
 import { Database } from "../Firebase";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { itemcheckout } from "../util/item.js";
+// import { itemcheckout } from "../util/item.js";
+import { Link } from "react-router-dom";
 export default function Book_list() {
   const [getdata, setdata] = useState([]);
-  const [getBook, setBook] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,36 +23,35 @@ export default function Book_list() {
     // console.log(getdata[0]);
   });
 
-  const focusPoint = useRef(null);
 
-  function ccurrentstatus() {
-    // Prevent default behavior of the event (e.g., form submission)
-    var currentuser = sessionStorage.getItem("currentuser");
-    if (!currentuser) {
-      console.log(currentuser);
-      toast("Please login", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-      });
-    } else {
-      let collection ={
-        user_id : currentuser,
-        // Book_name : focusPoint.current.textContent
-      }
-      itemcheckout(collection)
-    }
-  }
+  // function ccurrentstatus() {
+  //   // Prevent default behavior of the event (e.g., form submission)
+  //   var currentuser = sessionStorage.getItem("currentuser");
+  //   if (!currentuser) {
+  //     console.log(currentuser);
+  //     toast("Please login", {
+  //       position: "top-right",
+  //       autoClose: 5000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: false,
+  //       progress: undefined,
+  //       theme: "light",
+  //     });
+  //   } else {
+  //     let collection = {
+  //       user_id: currentuser,
+  //       // Book_name : focusPoint.current.textContent
+  //     };
+  //     itemcheckout(collection);
+  //   }
+  // }
 
   return (
     <>
-         {/* {console.log(getdata)} */}
-       <div class="product-container">
+      {/* {console.log(getdata)} */}
+      <div class="product-container">
         {getdata.slice(0, 3).map((data, index) => (
           <div class="product-card" key={index}>
             <a href={data.file?.file} target="_blank">
@@ -62,16 +61,22 @@ export default function Book_list() {
                 class="product-image"
               />
             </a>
-            <h3 class="product-name">  {data.Name}</h3>
+            <h3 class="product-name"> {data.Name}</h3>
             {/* <p class="product-description">Product Description</p> */}
             <div class="product-price">$ {data.Price}</div>
-            <button class="add-to-cart-button" onClick={ccurrentstatus}>
+            {/* <button class="add-to-cart-button" onClick={ccurrentstatus}>
               Buy
-            </button>
+            </button> */}
+            <Link
+              to={`product/detail/${data.index}`}
+              className="add-to-cart-button"
+            >
+              view
+            </Link>
           </div>
         ))}
+      {/* <ToastContainer /> */}
       </div>
-      <ToastContainer />
     </>
   );
 }

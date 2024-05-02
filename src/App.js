@@ -4,6 +4,8 @@ import Blog from "./Components/blog";
 
 import Bookproducts from "./Components/Book_products";
 
+import Booksdeatil from "./Components/Bookdetail";
+
 import Login from "../src/Components/User/Login";
 import Sign from "../src/Components/User/Sign_up";
 
@@ -37,6 +39,8 @@ function App() {
         <Route exact path="/user/profile" element={<Profile_update />} />
 
         <Route exact path="/Admin/file/upload" element={<Adminupload />} />
+
+        <Route path='product/detail/:itemId' element={<Booksdeatil />} />
       </Routes>
     </div>
   );
