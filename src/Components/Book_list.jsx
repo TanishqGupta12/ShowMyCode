@@ -51,6 +51,7 @@ export default function Book_list() {
 
   return (
     <>
+         {/* {console.log(getdata)} */}
        <div class="product-container">
         {getdata.slice(0, 3).map((data, index) => (
           <div class="product-card" key={index}>
