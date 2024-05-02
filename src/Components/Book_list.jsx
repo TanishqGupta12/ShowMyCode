@@ -52,7 +52,7 @@ export default function Book_list() {
   return (
     <>
        <div class="product-container">
-        {getdata.slice(0, 4).map((data, index) => (
+        {getdata.slice(0, 3).map((data, index) => (
           <div class="product-card" key={index}>
             <a href={data.file?.file} target="_blank">
               <img
