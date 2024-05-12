@@ -13,12 +13,27 @@ export default function Admin() {
     Details: "",
     Price: "",
   });
+  function generatePass() {
+    let pass = '';
+    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+        'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+ 
+    for (let i = 1; i <= 8; i++) {
+        let char = Math.floor(Math.random()
+            * str.length + 1);
+ 
+        pass += str.charAt(char)
+    }
+ 
+    return pass;
+}
 
   const sendSubmit = () => {
     const dbRef = push(refs(Database, "Book"));
     // Push data to the database
     const date = new Date().toLocaleString();
     set(dbRef, {
+      index: generatePass(),
       Name: status.Book,
       Category: status.Category,
       Details: status.Details,
