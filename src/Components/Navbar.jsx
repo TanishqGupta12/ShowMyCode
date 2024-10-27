@@ -1,4 +1,5 @@
-import React ,{useRef} from "react";
+// import React ,{useRef} from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../Firebase";
@@ -45,7 +46,7 @@ function Navbar() {
                 <a href="#">Profile &darr;</a>
                 <ul>
                   <li>
-                    <a href="#" onClick={handleLogout}>
+                    <a href="javascipt:void()" onClick={handleLogout}>
                       Logout
                     </a>
                   </li>
