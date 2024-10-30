@@ -19,9 +19,9 @@ export default function Login() {
         sessionStorage.setItem("currentuser", user.uid);
         if (email == "admin-book@email.com") {
           navigate("/Admin")
-          return
+        } else{
+          navigate("/")
         }
-        navigate("/")
       })
       .catch((error) => {
         // const errorCode = error.code;

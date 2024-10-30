@@ -43,21 +43,22 @@ function Navbar() {
             {/* {console.log(sessionStorage)} */}
             {sessionStorage.getItem("currentuser") ? (
               <li>
-                <a href="#">Profile &darr;</a>
-                <ul>
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                >Profile &darr;</a>
+                <ul  className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
                   <li>
-                    <a href="javascipt:void()" onClick={handleLogout}>
+                    <a className="dropdown-item" href="javascipt:void()" onClick={handleLogout}>
                       Logout
                     </a>
                   </li>
                   <li>
-                    <a href="/user/profile">Profile</a>
+                    <a className="dropdown-item" href="/user/profile">Profile</a>
                   </li>
                   <li>
-                    <a href="#">My Book</a>
+                    <a className="dropdown-item" href="#">My Book</a>
                   </li>
                   <li>
-                    <a href="#">Iconography</a>
+                    <a className="dropdown-item"  href="#">Iconography</a>
                   </li>
                 </ul>
               </li>
