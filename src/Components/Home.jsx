@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function Home() {
   const [getlink, setLink] = useState(false);
 
-  var currentuser = sessionStorage.getItem("currentuser");
+  var currentuser = localStorage.getItem("currentuser");
 
   useEffect(() => {
     if (currentuser) {
@@ -40,7 +40,7 @@ export default function Home() {
       <Section />
       <Booklist />
       <div className="product_button">
-        {console.log(getlink)}
+        {/* {console.log(getlink)} */}
         <Link
           to={getlink ? "/book/list" : ""}
           className="buttonss default"

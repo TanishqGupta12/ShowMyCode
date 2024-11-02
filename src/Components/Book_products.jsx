@@ -57,7 +57,7 @@ export default function Book_products() {
         <div class="product-container">
           {getdata.map((data, index) => (
             <div class="product-card" key={index}>
-              <a href={data.file?.file} target="_blank">
+              <a href={data.file?.file} target="_blank" rel="noreferrer">
                 <img
                   src={data.file.image}
                   alt={data.Name}

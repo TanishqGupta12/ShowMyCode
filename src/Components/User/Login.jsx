@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
-import Util from "../../util/util";
+// import Util from "../../util/util";
 
 export default function Login() {
   const auth = getAuth();
   const [email, setemail] = useState(" ");
   const [password, setpassword] = useState(" ");
-  const util = new Util();
+  const navigate = useNavigate()
 
   const handleSign = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -16,9 +16,12 @@ export default function Login() {
         // Signed in
         const user = userCredential.user;
         // console.log(user);
-        sessionStorage.setItem("currentuser", user.uid);
-        alert(" Succeessfully login ");
-        util.refreshPage()
+        localStorage.setItem("currentuser", user.uid);
+        if (email == "admin-book@email.com") {
+          navigate("/Admin")
+        } else{
+          navigate("/")
+        }
       })
       .catch((error) => {
         // const errorCode = error.code;

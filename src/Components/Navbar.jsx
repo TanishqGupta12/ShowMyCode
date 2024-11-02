@@ -1,4 +1,5 @@
-import React ,{useRef} from "react";
+// import React ,{useRef} from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../Firebase";
@@ -10,7 +11,7 @@ function Navbar() {
   const handleLogout = () => {
     signOut(auth)
     .then(() => {
-      sessionStorage.removeItem("currentuser");
+      localStorage.removeItem("currentuser");
       navigate("/"); // Redirect to home page
       // console.log("Signed out successfully");
     })
@@ -18,7 +19,8 @@ function Navbar() {
       // An error happened.
       console.log(error);
     });
-  };  
+  };
+  var currentuser = localStorage.getItem("currentuser")  
   return (
     <>
       <div className="navbar">
@@ -39,24 +41,24 @@ function Navbar() {
             <li>
               <a href="/Blog">Blog</a>
             </li>
-            {/* {console.log(sessionStorage)} */}
-            {sessionStorage.getItem("currentuser") ? (
+            {currentuser ? (
               <li>
-                <a href="#">Profile &darr;</a>
-                <ul>
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                >Profile</a>
+                <ul  className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
                   <li>
-                    <a href="#" onClick={handleLogout}>
+                    <a className="dropdown-item" href="javascipt:void()" onClick={handleLogout}>
                       Logout
                     </a>
                   </li>
                   <li>
-                    <a href="/user/profile">Profile</a>
+                    <a className="dropdown-item" href="/user/profile">Profile</a>
                   </li>
                   <li>
-                    <a href="#">My Book</a>
+                    <a className="dropdown-item" href="#">My Book</a>
                   </li>
                   <li>
-                    <a href="#">Iconography</a>
+                    <a className="dropdown-item"  href="#">Iconography</a>
                   </li>
                 </ul>
               </li>

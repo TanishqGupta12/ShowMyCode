@@ -24,29 +24,6 @@ export default function Book_list() {
   });
 
 
-  // function ccurrentstatus() {
-  //   // Prevent default behavior of the event (e.g., form submission)
-  //   var currentuser = sessionStorage.getItem("currentuser");
-  //   if (!currentuser) {
-  //     console.log(currentuser);
-  //     toast("Please login", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: false,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   } else {
-  //     let collection = {
-  //       user_id: currentuser,
-  //       // Book_name : focusPoint.current.textContent
-  //     };
-  //     itemcheckout(collection);
-  //   }
-  // }
 
   return (
     <>
@@ -54,7 +31,7 @@ export default function Book_list() {
       <div class="product-container">
         {getdata.slice(0, 3).map((data, index) => (
           <div class="product-card" key={index}>
-            <a href={data.file?.file} target="_blank">
+            <a href={data.file?.file} target="_blank" rel="noreferrer" >
               <img
                 src={data.file.image}
                 alt={data.Name}
