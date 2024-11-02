@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <footer id="picassoFooter">
-        <div class="footer-navigation">
+        <div className="footer-navigation">
           <h3>Quick Links</h3>
           <ul>
             <li>
@@ -22,26 +22,26 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div class="footer-contact">
+        <div className="footer-contact">
           <h3>Contact Us</h3>
           <p>Email: info@example.com</p>
           <p>Phone: +123 456 7890</p>
         </div>
-        <div class="footer-social">
+        <div className="footer-social">
           <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" class="social-icon" rel="noreferrer">
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" className="social-icon" rel="noreferrer">
               FB
             </a>
-            <a href="https://twitter.com" target="_blank" class="social-icon" rel="noreferrer">
+            <a href="https://twitter.com" target="_blank" className="social-icon" rel="noreferrer">
               TW
             </a>
-            <a href="https://instagram.com" target="_blank" class="social-icon" rel="noreferrer">
+            <a href="https://instagram.com" target="_blank" className="social-icon" rel="noreferrer">
               IG
             </a>
           </div>
         </div>
-        <div class="footer-art">
+        <div className="footer-art">
           <canvas id="picassoCanvas"></canvas>
         </div>
       </footer>

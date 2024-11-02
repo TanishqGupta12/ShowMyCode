@@ -3,11 +3,11 @@ import React from "react";
 export default function About() {
   return (
     <>
-      <div class="about">
-        <div class="about_image">
+      <div className="about">
+        <div className="about_image">
           <img src="image/About.jpg" alt="..." />
         </div>
-        <div class="about_tag">
+        <div className="about_tag">
           <h1>About Us</h1>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
@@ -18,7 +18,7 @@ export default function About() {
             aperiam laboriosam voluptas nobis voluptates id amet eos repellat
             corrupti harum consectetur, dolorum dolore blanditiis quam quo.
           </p>
-          <a href="#.." class="about_btn">
+          <a href="#.." className="about_btn">
             Learn More
           </a>
         </div>

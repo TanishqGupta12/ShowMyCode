@@ -19,55 +19,24 @@ export default function Book_products() {
     fetchData();
     // console.log(getdata[0]);
   });
-  // return (
-  //   <>
-  //     <div className="produc_head">
-  //       {getdata.slice(0, 3).map((data, index) => (
-  //         <div class=" product-card" key={index}>
-  //           {/* <div class="badge">Hot</div> */}
-  //           <div class="product-tumb">
-  //             <img src={data.file?.image} alt={data.Name} />
-  //           </div>
-  //           <div class="product-details">
-  //             <span class="product-catagory">Category: {data.Category}</span>
-  //             <h4>
-  //               <a href={data.file?.file}>{data.Name}</a>
-  //             </h4>
-  //             <p>{data.Details}</p>
-  //             <div class="product-bottom-details">
-  //               <div class="product-price">Price :{data.Price}</div>
-  //               {/* <div class="product-links">
-  //                 <a href="">
-  //                   <i class="fa fa-heart"></i>
-  //                 </a>
-  //                 <a href="">
-  //                   <i class="fa fa-shopping-cart"></i>
-  //                 </a>
-  //               </div> */}
-  //             </div>
-  //           </div>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </>
-  // );
+
   return (
     <>
       <div className="produc_head">
-        <div class="product-container">
+        <div className="product-container">
           {getdata.map((data, index) => (
-            <div class="product-card" key={index}>
+            <div className="product-card" key={index}>
               <a href={data.file?.file} target="_blank" rel="noreferrer">
                 <img
                   src={data.file.image}
                   alt={data.Name}
-                  class="product-image"
+                  className="product-image"
                 />
               </a>
-              <h3 class="product-name"> {data.Name}</h3>
-              {/* <p class="product-description">Product Description</p> */}
-              <div class="product-price">$ {data.Price}</div>
-              <button class="add-to-cart-button" >
+              <h3 className="product-name"> {data.Name}</h3>
+              {/* <p className="product-description">Product Description</p> */}
+              <div className="product-price">$ {data.Price}</div>
+              <button className="add-to-cart-button" >
                 Buy
               </button>
             </div>
