@@ -11,7 +11,7 @@ function Navbar() {
   const handleLogout = () => {
     signOut(auth)
     .then(() => {
-      sessionStorage.removeItem("currentuser");
+      localStorage.removeItem("currentuser");
       navigate("/"); // Redirect to home page
       // console.log("Signed out successfully");
     })
@@ -19,7 +19,8 @@ function Navbar() {
       // An error happened.
       console.log(error);
     });
-  };  
+  };
+  var currentuser = localStorage.getItem("currentuser")  
   return (
     <>
       <div className="navbar">
@@ -40,11 +41,10 @@ function Navbar() {
             <li>
               <a href="/Blog">Blog</a>
             </li>
-            {/* {console.log(sessionStorage)} */}
-            {sessionStorage.getItem("currentuser") ? (
+            {currentuser ? (
               <li>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                >Profile &darr;</a>
+                >Profile</a>
                 <ul  className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
                   <li>
                     <a className="dropdown-item" href="javascipt:void()" onClick={handleLogout}>

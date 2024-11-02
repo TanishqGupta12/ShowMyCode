@@ -24,29 +24,6 @@ export default function Book_list() {
   });
 
 
-  // function ccurrentstatus() {
-  //   // Prevent default behavior of the event (e.g., form submission)
-  //   var currentuser = sessionStorage.getItem("currentuser");
-  //   if (!currentuser) {
-  //     console.log(currentuser);
-  //     toast("Please login", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: false,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   } else {
-  //     let collection = {
-  //       user_id: currentuser,
-  //       // Book_name : focusPoint.current.textContent
-  //     };
-  //     itemcheckout(collection);
-  //   }
-  // }
 
   return (
     <>

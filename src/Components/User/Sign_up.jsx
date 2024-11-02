@@ -33,7 +33,7 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        sessionStorage.setItem("currentuser",  user.uid);
+        localStorage.setItem("currentuser",  user.uid);
         updateProfile(user, {
           displayName: Full_name,
         }).then(() => {

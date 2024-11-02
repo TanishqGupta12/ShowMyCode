@@ -16,7 +16,7 @@ export default function Login() {
         // Signed in
         const user = userCredential.user;
         // console.log(user);
-        sessionStorage.setItem("currentuser", user.uid);
+        localStorage.setItem("currentuser", user.uid);
         if (email == "admin-book@email.com") {
           navigate("/Admin")
         } else{
