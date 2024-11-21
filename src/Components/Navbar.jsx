@@ -1,42 +1,75 @@
+// import React ,{useRef} from "react";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useNavigate } from 'react-router-dom';
+import { auth } from "../Firebase";
+import { signOut } from "firebase/auth";
+
+
 function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    signOut(auth)
+    .then(() => {
+      localStorage.removeItem("currentuser");
+      navigate("/"); // Redirect to home page
+      // console.log("Signed out successfully");
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
+  };
+  var currentuser = localStorage.getItem("currentuser")  
   return (
     <>
-      <section>
-        <nav>
-          <div class="logo">
-          <img src={process.env.PUBLIC_URL + './logo.png'} alt='...' />
-          </div>
-          <div id="title" class="d-flex justify-content-center">
-            <h2>BookMyCode</h2>
-          </div>
-          <div class="social_icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </nav>
-
-        <div class="main">
-          <div class="main_tag">
-            <h1>WELCOME TO<br/><span>BOOK STORE</span></h1>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-              molestias atque laborum non fuga ex deserunt. Exercitationem velit
-              ducimus praesentium, obcaecati hic voluptate id tenetur fuga illum
-              quidem omnis? Rerum?
-            </p>
-            <a href="#" class="main_btn">
-              Learn More
-            </a>
-          </div>
-
-          <div class="main_img">
-            <img src="image/b.png" />
-          </div>
+      <div className="navbar">
+        <div className="logo">
+          <img src={process.env.PUBLIC_URL + "/logo.png"} alt="..." />
         </div>
-      </section>
+        <div id="title" className="d-flex justify-content-center">
+          <h2>BookMyCode</h2>
+        </div>
+        <nav role="navigation" className="navigation">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/About">About</a>
+            </li>
+            <li>
+              <a href="/Blog">Blog</a>
+            </li>
+            {currentuser ? (
+              <li>
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                >Profile</a>
+                <ul  className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
+                  <li>
+                    <a className="dropdown-item" href="javascipt:void()" onClick={handleLogout}>
+                      Logout
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/user/profile">Profile</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">My Book</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item"  href="#">Iconography</a>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
     </>
   );
 }
